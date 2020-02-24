@@ -302,6 +302,12 @@ class PDFLinkService {
           mode: params.pagemode,
         });
       }
+      if ("spreadmode" in params) {
+        this.eventBus.dispatch("switchspreadmode", {
+          source: this,
+          mode: Number(params.spreadmode),
+        });
+      }
     } else {
       // Named (or explicit) destination.
       dest = unescape(hash);
